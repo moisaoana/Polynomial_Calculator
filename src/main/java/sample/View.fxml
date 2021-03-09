@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="466.0" prefWidth="600.0" style="-fx-background-color: SlateBlue;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <Label fx:id="titleLabel" layoutX="142.0" layoutY="21.0" text="Polynomial Calculator" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Showcard Gothic" size="25.0" />
+         </font>
+      </Label>
+      <Label fx:id="poly1Label" layoutX="55.0" layoutY="76.0" text="1st polynomial:" textFill="WHITE">
+         <font>
+            <Font name="Times New Roman Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="poly2Label" layoutX="52.0" layoutY="118.0" text="2nd polynomial:" textFill="WHITE">
+         <font>
+            <Font name="Times New Roman Bold" size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="poly1TextField" layoutX="212.0" layoutY="73.0" onMouseClicked="#clickTextBox1" prefHeight="25.0" prefWidth="279.0" promptText="Insert first polynomial" />
+      <TextField fx:id="poly2TextField" layoutX="212.0" layoutY="118.0" onMouseClicked="#clickTextBox2" prefHeight="25.0" prefWidth="279.0" promptText="Insert second polynomial" />
+      <TextField fx:id="resultTextField" editable="false" layoutX="212.0" layoutY="165.0" prefHeight="25.0" prefWidth="279.0" style="-fx-background-color: silver;" />
+      <Label fx:id="resultLabel" layoutX="76.0" layoutY="168.0" text="Result:" textFill="WHITE">
+         <font>
+            <Font name="Times New Roman Bold" size="16.0" />
+         </font>
+      </Label>
+      <Button fx:id="addButton" layoutX="188.0" layoutY="206.0" mnemonicParsing="false" onAction="#clickAdd" prefHeight="28.0" prefWidth="49.0" style="-fx-background-color: DarkSalmon;" text="Add">
+         <font>
+            <Font name="Showcard Gothic" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="subtractButton" layoutX="327.0" layoutY="205.0" mnemonicParsing="false" onAction="#clickSubtract" prefHeight="29.0" prefWidth="75.0" style="-fx-background-color: DarkSalmon;" text="Subtract">
+         <font>
+            <Font name="Showcard Gothic" size="11.0" />
+         </font>
+      </Button>
+      <Button fx:id="button1" layoutX="28.0" layoutY="266.0" mnemonicParsing="false" onAction="#click1" prefHeight="36.0" prefWidth="38.0" style="-fx-background-color: DarkSalmon;" text="1">
+         <font>
+            <Font name="Showcard Gothic" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="button2" layoutX="89.0" layoutY="266.0" mnemonicParsing="false" onAction="#click2" prefHeight="36.0" prefWidth="38.0" style="-fx-background-color: DarkSalmon;" text="2">
+         <font>
+            <Font name="Showcard Gothic" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="button3" layoutX="145.0" layoutY="266.0" mnemonicParsing="false" onAction="#click3" prefHeight="36.0" prefWidth="38.0" style="-fx-background-color: DarkSalmon;" text="3">
+         <font>
+            <Font name="Showcard Gothic" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="button4" layoutX="28.0" layoutY="324.0" mnemonicParsing="false" onAction="#click4" prefHeight="36.0" prefWidth="38.0" style="-fx-background-color: DarkSalmon;" text="4">
+         <font>
+            <Font name="Showcard Gothic" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="button5" layoutX="89.0" layoutY="324.0" mnemonicParsing="false" onAction="#click5" prefHeight="36.0" prefWidth="38.0" style="-fx-background-color: DarkSalmon;" text="5">
+         <font>
+            <Font name="Showcard Gothic" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="button6" layoutX="145.0" layoutY="324.0" mnemonicParsing="false" onAction="#click6" prefHeight="36.0" prefWidth="38.0" style="-fx-background-color: DarkSalmon;" text="6">
+         <font>
+            <Font name="Showcard Gothic" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="button7" layoutX="28.0" layoutY="377.0" mnemonicParsing="false" onAction="#click7" prefHeight="36.0" prefWidth="38.0" style="-fx-background-color: DarkSalmon;" text="7">
+         <font>
+            <Font name="Showcard Gothic" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="button8" layoutX="89.0" layoutY="377.0" mnemonicParsing="false" onAction="#click8" prefHeight="36.0" prefWidth="38.0" style="-fx-background-color: DarkSalmon;" text="8">
+         <font>
+            <Font name="Showcard Gothic" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="button9" layoutX="145.0" layoutY="377.0" mnemonicParsing="false" onAction="#click9" prefHeight="36.0" prefWidth="38.0" style="-fx-background-color: DarkSalmon;" text="9">
+         <font>
+            <Font name="Showcard Gothic" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="button0" layoutX="89.0" layoutY="422.0" mnemonicParsing="false" onAction="#click0" prefHeight="36.0" prefWidth="38.0" style="-fx-background-color: DarkSalmon;" text="0">
+         <font>
+            <Font name="Showcard Gothic" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="buttonPlus" layoutX="372.0" layoutY="266.0" mnemonicParsing="false" onAction="#clickPlus" prefHeight="36.0" prefWidth="38.0" style="-fx-background-color: DarkSalmon;" text="+">
+         <font>
+            <Font name="Showcard Gothic" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="buttonMinus" layoutX="440.0" layoutY="266.0" mnemonicParsing="false" onAction="#clickMinus" prefHeight="36.0" prefWidth="38.0" style="-fx-background-color: DarkSalmon;" text="-">
+         <font>
+            <Font name="Showcard Gothic" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="buttonTimes" layoutX="506.0" layoutY="266.0" mnemonicParsing="false" onAction="#clickTimes" prefHeight="36.0" prefWidth="38.0" style="-fx-background-color: DarkSalmon;" text="*">
+         <font>
+            <Font name="Showcard Gothic" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="buttonDiv" layoutX="372.0" layoutY="318.0" mnemonicParsing="false" onAction="#clickDiv" prefHeight="36.0" prefWidth="38.0" style="-fx-background-color: DarkSalmon;" text="/">
+         <font>
+            <Font name="Showcard Gothic" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="buttonPower" layoutX="440.0" layoutY="318.0" mnemonicParsing="false" onAction="#clickPower" prefHeight="36.0" prefWidth="38.0" style="-fx-background-color: DarkSalmon;" text="^">
+         <font>
+            <Font name="Showcard Gothic" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="buttonVariableX" layoutX="506.0" layoutY="318.0" mnemonicParsing="false" onAction="#clickX" prefHeight="36.0" prefWidth="38.0" style="-fx-background-color: DarkSalmon;" text="x">
+         <font>
+            <Font name="Showcard Gothic" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="buttonDelete" layoutX="372.0" layoutY="377.0" mnemonicParsing="false" onAction="#clickDelete" prefHeight="36.0" prefWidth="170.0" style="-fx-background-color: DarkSalmon;" text="DELETE">
+         <font>
+            <Font name="Showcard Gothic" size="15.0" />
+         </font>
+      </Button>
+      <Line endX="-59.0" endY="187.0" fill="WHITE" layoutX="359.0" layoutY="268.0" startX="-59.0" startY="-3.5" stroke="WHITE" />
+      <Label fx:id="error1Label" layoutX="511.0" layoutY="77.0" text="Required!" underline="true" visible="false">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="error2Label" layoutX="511.0" layoutY="121.0" text="Required!" underline="true" visible="false">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
