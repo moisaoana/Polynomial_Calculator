@@ -166,23 +166,33 @@ public class Controller {
 
     @FXML
     void clickAdd(ActionEvent event) {
-       displayErrorMessages();
-       resultTextField.clear();
-       Polynomial polynomial1=getPolynomial(poly1TextField);
-       Polynomial polynomial2=getPolynomial(poly2TextField);
-        Operations operations=new Operations(polynomial1,polynomial2);
-        Polynomial result=operations.add();
-        displayResult(result);
+        if(poly1TextField.getText().isEmpty() || poly2TextField.getText().isEmpty()) {
+            displayErrorMessages();
+            resultTextField.clear();
+        }
+        else {
+            resultTextField.clear();
+            Polynomial polynomial1 = getPolynomial(poly1TextField);
+            Polynomial polynomial2 = getPolynomial(poly2TextField);
+            Operations operations = new Operations(polynomial1, polynomial2);
+            Polynomial result = operations.add();
+            displayResult(result);
+        }
     }
     @FXML
     void clickSubtract(ActionEvent event) {
-        displayErrorMessages();
-        resultTextField.clear();
-        Polynomial polynomial1=getPolynomial(poly1TextField);
-        Polynomial polynomial2=getPolynomial(poly2TextField);
-        Operations operations=new Operations(polynomial1,polynomial2);
-        Polynomial result=operations.subtract();
-        displayResult(result);
+        if(poly1TextField.getText().isEmpty() || poly2TextField.getText().isEmpty()) {
+            displayErrorMessages();
+            resultTextField.clear();
+        }
+        else {
+            resultTextField.clear();
+            Polynomial polynomial1 = getPolynomial(poly1TextField);
+            Polynomial polynomial2 = getPolynomial(poly2TextField);
+            Operations operations = new Operations(polynomial1, polynomial2);
+            Polynomial result = operations.subtract();
+            displayResult(result);
+        }
     }
 
     @FXML
@@ -190,26 +200,38 @@ public class Controller {
         resultTextField.clear();
         poly1TextField.clear();
         poly2TextField.clear();
+        error1Label.setVisible(false);
+        error2Label.setVisible(false);
     }
     @FXML
     void clickMultiply(ActionEvent event) {
-        displayErrorMessages();
-        resultTextField.clear();
-        Polynomial polynomial1=getPolynomial(poly1TextField);
-        Polynomial polynomial2=getPolynomial(poly2TextField);
-        Operations operations=new Operations(polynomial1,polynomial2);
-        Polynomial result=operations.multiply();
-        displayResult(result);
+        if(poly1TextField.getText().isEmpty() || poly2TextField.getText().isEmpty()) {
+            displayErrorMessages();
+            resultTextField.clear();
+        }
+        else {
+            resultTextField.clear();
+            Polynomial polynomial1 = getPolynomial(poly1TextField);
+            Polynomial polynomial2 = getPolynomial(poly2TextField);
+            Operations operations = new Operations(polynomial1, polynomial2);
+            Polynomial result = operations.multiply();
+            displayResult(result);
+        }
 
     }
     @FXML
     void clickDerivative(ActionEvent event) {
-        error1Label.setVisible(poly1TextField.getText().isEmpty());
-        resultTextField.clear();
-        Polynomial polynomial1=getPolynomial(poly1TextField);
-        Operations operations=new Operations(polynomial1,null);
-        Polynomial result=operations.derivative();
-        displayResult(result);
+        if(poly1TextField.getText().isEmpty()) {
+            error1Label.setVisible(true);
+            resultTextField.clear();
+        }
+        else {
+            resultTextField.clear();
+            Polynomial polynomial1 = getPolynomial(poly1TextField);
+            Operations operations = new Operations(polynomial1, null);
+            Polynomial result = operations.derivative();
+            displayResult(result);
+        }
 
     }
     public void appendText(String string)

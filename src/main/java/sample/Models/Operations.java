@@ -15,11 +15,8 @@ public class Operations {
             result.getMonomials().add(monomial);
         }
         for (Monomial monomial : polynomial2.getMonomials()) {
-            int found = 0;
-           // int index = -1;
-            int index=0;
+            int found = 0,index=0;
             for (Monomial monomialResult : result.getMonomials()) {
-                //index++;
                 if (monomial.getPower() == monomialResult.getPower()) {
                     if (monomialResult.getCoefficient() + monomial.getCoefficient() != 0)
                         monomialResult.setCoefficient(monomialResult.getCoefficient() + monomial.getCoefficient());
@@ -46,10 +43,8 @@ public class Operations {
             result.getMonomials().add(monomial);
         }
         for (Monomial monomial : polynomial2.getMonomials()) {
-            int found = 0;
-            int index = 0;
+            int found = 0,index = 0;
             for (Monomial monomialResult : result.getMonomials()) {
-
                 if (monomial.getPower() == monomialResult.getPower()) {
                     if (monomialResult.getCoefficient() - monomial.getCoefficient() != 0)
                         monomialResult.setCoefficient(monomialResult.getCoefficient() - monomial.getCoefficient());
