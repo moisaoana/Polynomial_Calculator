@@ -10,6 +10,7 @@ import sample.Models.Monomial;
 import sample.Models.Operations;
 import sample.Models.Polynomial;
 
+import java.text.DecimalFormat;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -118,6 +119,8 @@ public class Controller {
     }
     @FXML
     private Button derivativeButton;
+    @FXML
+    private Button integrationButton;
     @FXML
     void clickTextBox1(MouseEvent event) {
         firstTextBoxIsClicked=true;
@@ -234,6 +237,20 @@ public class Controller {
         }
 
     }
+    @FXML
+    void clickIntegration(ActionEvent event) {
+        if(poly1TextField.getText().isEmpty()) {
+            error1Label.setVisible(true);
+            resultTextField.clear();
+        }
+        else {
+            resultTextField.clear();
+            Polynomial polynomial1 = getPolynomial(poly1TextField);
+            Operations operations = new Operations(polynomial1, null);
+            Polynomial result = operations.integration();
+            displayResult(result);
+        }
+    }
     public void appendText(String string)
     {
         if(firstTextBoxIsClicked){
@@ -286,6 +303,7 @@ public class Controller {
 
     public void displayResult(Polynomial polynomial)
     {
+        DecimalFormat f = new DecimalFormat("#.##");
         if(polynomial.getMonomials().isEmpty()) {
             resultTextField.appendText("0");
         }
@@ -293,52 +311,43 @@ public class Controller {
         {
                 switch(monomial.getPower()) {
                     case 0:
-                        switch(monomial.getCoefficient()) {
-                            case 1:
-                                resultTextField.appendText("+1" );
-                                break;
-                            case -1:
-                                resultTextField.appendText("-1" );
-                                break;
-                            default:
+                        if (monomial.getCoefficient() == 1) {
+                            resultTextField.appendText("+1");
+                        } else if (monomial.getCoefficient() == -1) {
+                            resultTextField.appendText("-1");
+                        }else{
                                 if (monomial.getCoefficient() > 0)
-                                         resultTextField.appendText("+" + Integer.toString(monomial.getCoefficient()));
+                                         resultTextField.appendText("+" + f.format(monomial.getCoefficient()));
                                 else
-                                    resultTextField.appendText(Integer.toString(monomial.getCoefficient()));
+                                    resultTextField.appendText(f.format(monomial.getCoefficient()));
                         }
                         break;
                     case 1:
-                        switch(monomial.getCoefficient()) {
-                            case 1:
-                                resultTextField.appendText("+x");
-                                break;
-                            case -1:
-                                resultTextField.appendText("-x");
-                                break;
-                            default:
+                        if(monomial.getCoefficient()==1) {
+                            resultTextField.appendText("+x");
+                        }else if(monomial.getCoefficient()==-1) {
+
+                            resultTextField.appendText("-x");
+                        }else{
                                 if (monomial.getCoefficient() > 0)
-                                    resultTextField.appendText("+" + Integer.toString(monomial.getCoefficient()) + "*x");
+                                    resultTextField.appendText("+" + f.format(monomial.getCoefficient()) + "*x");
                                 else
-                                    resultTextField.appendText(Integer.toString(monomial.getCoefficient()) + "*x");
+                                    resultTextField.appendText(f.format(monomial.getCoefficient()) + "*x");
                                 break;
                         }
                         break;
                     default:
-                        switch(monomial.getCoefficient()) {
-                            case 1:
-                                resultTextField.appendText("+x^"+monomial.getPower());
-                                break;
-                            case -1:
-                                resultTextField.appendText("-x^"+monomial.getPower());
-                                break;
-                            default:
+                        if(monomial.getCoefficient()==1) {
+                            resultTextField.appendText("+x^" + monomial.getPower());
+                        }else if(monomial.getCoefficient()==-1) {
+                            resultTextField.appendText("-x^" + monomial.getPower());
+                        }else{
                                 if (monomial.getCoefficient() > 0)
-                                    resultTextField.appendText("+" +monomial.getCoefficient()+"*x^"+monomial.getPower());
+                                    resultTextField.appendText("+" +f.format(monomial.getCoefficient())+"*x^"+monomial.getPower());
                                 else
-                                    resultTextField.appendText( monomial.getCoefficient()+"*x^"+monomial.getPower());
+                                    resultTextField.appendText( f.format(monomial.getCoefficient())+"*x^"+monomial.getPower());
                                 break;
                         }
-
                         break;
                 }
         }

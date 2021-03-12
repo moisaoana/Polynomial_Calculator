@@ -96,6 +96,16 @@ public class Operations {
         }
             return result;
     }
+    public Polynomial integration()
+    {
+        Polynomial result=new Polynomial();
+        for(Monomial monomial: polynomial1.getMonomials()){
+                Monomial newMonomial = new Monomial(monomial.getCoefficient()/(monomial.getPower()+1), monomial.getPower()+1);
+                result.getMonomials().add(newMonomial);
+
+        }
+        return result;
+    }
 }
 
 

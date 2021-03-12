@@ -1,18 +1,18 @@
 package sample.Models;
 
 public class Monomial {
-    private int coefficient;
+    private double coefficient;
     private int power;
-    public Monomial(int coefficient,int power){
+    public Monomial(double coefficient,int power){
         this.coefficient=coefficient;
         this.power=power;
     }
 
-    public int getCoefficient() {
+    public double getCoefficient() {
         return coefficient;
     }
 
-    public void setCoefficient(int coefficient) {
+    public void setCoefficient(double coefficient) {
         this.coefficient = coefficient;
     }
 
