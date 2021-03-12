@@ -15,4 +15,6 @@ public class Polynomial {
     public void setMonomials(ArrayList<Monomial> monomials) {
         this.monomials = monomials;
     }
+
+
 }

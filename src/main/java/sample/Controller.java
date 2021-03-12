@@ -66,7 +66,6 @@ public class Controller {
     private Button buttonPower;
     @FXML
     private Button clearButton;
-
     @FXML
     private Button buttonVariableX;
     @FXML
@@ -75,6 +74,8 @@ public class Controller {
     private Label error1Label;
     @FXML
     private Label error2Label;
+    @FXML
+    private Button multiplyButton;
     @FXML
     void click0(ActionEvent event) {
         appendText("0");
@@ -115,6 +116,8 @@ public class Controller {
     void click9(ActionEvent event) {
         appendText("9");
     }
+    @FXML
+    private Button derivativeButton;
     @FXML
     void clickTextBox1(MouseEvent event) {
         firstTextBoxIsClicked=true;
@@ -188,6 +191,27 @@ public class Controller {
         poly1TextField.clear();
         poly2TextField.clear();
     }
+    @FXML
+    void clickMultiply(ActionEvent event) {
+        displayErrorMessages();
+        resultTextField.clear();
+        Polynomial polynomial1=getPolynomial(poly1TextField);
+        Polynomial polynomial2=getPolynomial(poly2TextField);
+        Operations operations=new Operations(polynomial1,polynomial2);
+        Polynomial result=operations.multiply();
+        displayResult(result);
+
+    }
+    @FXML
+    void clickDerivative(ActionEvent event) {
+        error1Label.setVisible(poly1TextField.getText().isEmpty());
+        resultTextField.clear();
+        Polynomial polynomial1=getPolynomial(poly1TextField);
+        Operations operations=new Operations(polynomial1,null);
+        Polynomial result=operations.derivative();
+        displayResult(result);
+
+    }
     public void appendText(String string)
     {
         if(firstTextBoxIsClicked){
@@ -237,6 +261,7 @@ public class Controller {
         }
        return polynomial1;
     }
+
     public void displayResult(Polynomial polynomial)
     {
         if(polynomial.getMonomials().isEmpty()) {
@@ -244,7 +269,6 @@ public class Controller {
         }
         for(Monomial monomial: polynomial.getMonomials())
         {
-
                 switch(monomial.getPower()) {
                     case 0:
                         switch(monomial.getCoefficient()) {
@@ -287,9 +311,9 @@ public class Controller {
                                 break;
                             default:
                                 if (monomial.getCoefficient() > 0)
-                                    resultTextField.appendText("+" + Integer.toString(monomial.getCoefficient())+"*x^"+monomial.getPower());
+                                    resultTextField.appendText("+" +monomial.getCoefficient()+"*x^"+monomial.getPower());
                                 else
-                                    resultTextField.appendText( Integer.toString(monomial.getCoefficient())+"*x^"+monomial.getPower());
+                                    resultTextField.appendText( monomial.getCoefficient()+"*x^"+monomial.getPower());
                                 break;
                         }
 
@@ -297,4 +321,5 @@ public class Controller {
                 }
         }
     }
+
 }
