@@ -65,12 +65,14 @@ public class Controller {
     @FXML
     private Button buttonPower;
     @FXML
+    private Button clearButton;
+
+    @FXML
     private Button buttonVariableX;
     @FXML
     private Button buttonDelete;
     @FXML
     private Label error1Label;
-
     @FXML
     private Label error2Label;
     @FXML
@@ -162,25 +164,29 @@ public class Controller {
     @FXML
     void clickAdd(ActionEvent event) {
        displayErrorMessages();
+       resultTextField.clear();
        Polynomial polynomial1=getPolynomial(poly1TextField);
        Polynomial polynomial2=getPolynomial(poly2TextField);
-       for(int i=0;i<polynomial1.getMonomials().size();i++)
-       {
-           System.out.println(polynomial1.getMonomials().get(i).getCoefficient()+" "+polynomial1.getMonomials().get(i).getPower());
-       }
-        for(int i=0;i<polynomial2.getMonomials().size();i++)
-        {
-            System.out.println(polynomial2.getMonomials().get(i).getCoefficient()+" "+polynomial2.getMonomials().get(i).getPower());
-        }
         Operations operations=new Operations(polynomial1,polynomial2);
         Polynomial result=operations.add();
         displayResult(result);
-
     }
-
     @FXML
     void clickSubtract(ActionEvent event) {
         displayErrorMessages();
+        resultTextField.clear();
+        Polynomial polynomial1=getPolynomial(poly1TextField);
+        Polynomial polynomial2=getPolynomial(poly2TextField);
+        Operations operations=new Operations(polynomial1,polynomial2);
+        Polynomial result=operations.subtract();
+        displayResult(result);
+    }
+
+    @FXML
+    void clickClear(ActionEvent event) {
+        resultTextField.clear();
+        poly1TextField.clear();
+        poly2TextField.clear();
     }
     public void appendText(String string)
     {
@@ -224,7 +230,6 @@ public class Controller {
             } else {
                 power = Integer.parseInt(matcher.group(3));
             }
-
             if(!(matcher.group(1).equals("") && matcher.group(2)==null &&matcher.group(3).equals(""))) {
                 Monomial monomial = new Monomial(coeff, power);
                 polynomial1.getMonomials().add(monomial);
@@ -234,8 +239,12 @@ public class Controller {
     }
     public void displayResult(Polynomial polynomial)
     {
+        if(polynomial.getMonomials().isEmpty()) {
+            resultTextField.appendText("0");
+        }
         for(Monomial monomial: polynomial.getMonomials())
         {
+
                 switch(monomial.getPower()) {
                     case 0:
                         switch(monomial.getCoefficient()) {
@@ -247,7 +256,7 @@ public class Controller {
                                 break;
                             default:
                                 if (monomial.getCoefficient() > 0)
-                                    resultTextField.appendText("+" + Integer.toString(monomial.getCoefficient()));
+                                         resultTextField.appendText("+" + Integer.toString(monomial.getCoefficient()));
                                 else
                                     resultTextField.appendText(Integer.toString(monomial.getCoefficient()));
                         }
@@ -286,7 +295,6 @@ public class Controller {
 
                         break;
                 }
-
         }
     }
 }

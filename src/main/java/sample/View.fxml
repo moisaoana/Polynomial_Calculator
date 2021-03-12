@@ -26,7 +26,10 @@
       </Label>
       <TextField fx:id="poly1TextField" layoutX="212.0" layoutY="73.0" onMouseClicked="#clickTextBox1" prefHeight="25.0" prefWidth="279.0" promptText="Insert first polynomial" />
       <TextField fx:id="poly2TextField" layoutX="212.0" layoutY="118.0" onMouseClicked="#clickTextBox2" prefHeight="25.0" prefWidth="279.0" promptText="Insert second polynomial" />
-      <TextField fx:id="resultTextField" editable="false" layoutX="212.0" layoutY="165.0" prefHeight="25.0" prefWidth="279.0" style="-fx-background-color: silver;" />
+      <TextField fx:id="resultTextField" editable="false" layoutX="212.0" layoutY="165.0" prefHeight="25.0" prefWidth="279.0" style="-fx-background-color: silver;">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></TextField>
       <Label fx:id="resultLabel" layoutX="76.0" layoutY="168.0" text="Result:" textFill="WHITE">
          <font>
             <Font name="Times New Roman Bold" size="16.0" />
@@ -138,5 +141,10 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
+      <Button fx:id="clearButton" layoutX="431.0" layoutY="428.0" mnemonicParsing="false" onAction="#clickClear" style="-fx-background-color: firebrick;" text="CLEAR" textFill="WHITE">
+         <font>
+            <Font name="Showcard Gothic" size="12.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
