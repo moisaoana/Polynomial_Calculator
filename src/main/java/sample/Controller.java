@@ -11,6 +11,7 @@ import sample.Models.Operations;
 import sample.Models.Polynomial;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -77,6 +78,8 @@ public class Controller {
     private Label error2Label;
     @FXML
     private Button multiplyButton;
+    @FXML
+    private Button divideButton;
     @FXML
     void click0(ActionEvent event) {
         appendText("0");
@@ -250,6 +253,26 @@ public class Controller {
             Polynomial result = operations.integration();
             displayResult(result);
         }
+    }
+    @FXML
+    void clickDivide(ActionEvent event) {
+        if(poly1TextField.getText().isEmpty() || poly2TextField.getText().isEmpty()) {
+            displayErrorMessages();
+            resultTextField.clear();
+        }
+        else {
+            resultTextField.clear();
+            Polynomial polynomial1 = getPolynomial(poly1TextField);
+            Polynomial polynomial2 = getPolynomial(poly2TextField);
+            Operations operations = new Operations(polynomial1, polynomial2);
+            ArrayList<Polynomial> result = operations.division();
+            resultTextField.appendText("Quotient:" );
+            displayResult(result.get(0));
+            resultTextField.appendText(" | Remainder: ");
+            displayResult(result.get(1));
+
+        }
+
     }
     public void appendText(String string)
     {

@@ -14,33 +14,33 @@
             <Font name="Showcard Gothic" size="25.0" />
          </font>
       </Label>
-      <Label fx:id="poly1Label" layoutX="55.0" layoutY="76.0" text="1st polynomial:" textFill="WHITE">
+      <Label fx:id="poly1Label" layoutX="13.0" layoutY="77.0" text="1st polynomial:" textFill="WHITE">
          <font>
             <Font name="Times New Roman Bold" size="16.0" />
          </font>
       </Label>
-      <Label fx:id="poly2Label" layoutX="52.0" layoutY="118.0" text="2nd polynomial:" textFill="WHITE">
+      <Label fx:id="poly2Label" layoutX="10.0" layoutY="121.0" text="2nd polynomial:" textFill="WHITE">
          <font>
             <Font name="Times New Roman Bold" size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="poly1TextField" layoutX="212.0" layoutY="73.0" onMouseClicked="#clickTextBox1" prefHeight="25.0" prefWidth="279.0" promptText="Insert first polynomial" />
-      <TextField fx:id="poly2TextField" layoutX="212.0" layoutY="118.0" onMouseClicked="#clickTextBox2" prefHeight="25.0" prefWidth="279.0" promptText="Insert second polynomial" />
-      <TextField fx:id="resultTextField" editable="false" layoutX="212.0" layoutY="165.0" prefHeight="25.0" prefWidth="279.0" style="-fx-background-color: silver;">
+      <TextField fx:id="poly1TextField" layoutX="147.0" layoutY="74.0" onMouseClicked="#clickTextBox1" prefHeight="25.0" prefWidth="365.0" promptText="Insert first polynomial" />
+      <TextField fx:id="poly2TextField" layoutX="147.0" layoutY="118.0" onMouseClicked="#clickTextBox2" prefHeight="25.0" prefWidth="365.0" promptText="Insert second polynomial" />
+      <TextField fx:id="resultTextField" editable="false" layoutX="147.0" layoutY="165.0" prefHeight="25.0" prefWidth="365.0" style="-fx-background-color: silver;">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></TextField>
-      <Label fx:id="resultLabel" layoutX="76.0" layoutY="168.0" text="Result:" textFill="WHITE">
+      <Label fx:id="resultLabel" layoutX="23.0" layoutY="168.0" text="Result:" textFill="WHITE">
          <font>
             <Font name="Times New Roman Bold" size="16.0" />
          </font>
       </Label>
-      <Button fx:id="addButton" layoutX="46.0" layoutY="207.0" mnemonicParsing="false" onAction="#clickAdd" prefHeight="36.0" prefWidth="60.0" style="-fx-background-color: lavender;" text="Add">
+      <Button fx:id="addButton" layoutX="25.0" layoutY="207.0" mnemonicParsing="false" onAction="#clickAdd" prefHeight="36.0" prefWidth="60.0" style="-fx-background-color: lavender;" text="Add">
          <font>
             <Font name="Showcard Gothic" size="13.0" />
          </font>
       </Button>
-      <Button fx:id="subtractButton" layoutX="142.0" layoutY="207.0" mnemonicParsing="false" onAction="#clickSubtract" prefHeight="36.0" prefWidth="72.0" style="-fx-background-color: lavender;" text="Subtract">
+      <Button fx:id="subtractButton" layoutX="106.0" layoutY="207.0" mnemonicParsing="false" onAction="#clickSubtract" prefHeight="36.0" prefWidth="72.0" style="-fx-background-color: lavender;" text="Subtract">
          <font>
             <Font name="Showcard Gothic" size="11.0" />
          </font>
@@ -50,12 +50,12 @@
             <Font name="Showcard Gothic" size="15.0" />
          </font>
       </Button>
-      <Button fx:id="button2" layoutX="89.0" layoutY="266.0" mnemonicParsing="false" onAction="#click2" prefHeight="36.0" prefWidth="38.0" style="-fx-background-color: DarkSalmon;" text="2">
+      <Button fx:id="button2" layoutX="106.0" layoutY="266.0" mnemonicParsing="false" onAction="#click2" prefHeight="36.0" prefWidth="38.0" style="-fx-background-color: DarkSalmon;" text="2">
          <font>
             <Font name="Showcard Gothic" size="15.0" />
          </font>
       </Button>
-      <Button fx:id="button3" layoutX="145.0" layoutY="266.0" mnemonicParsing="false" onAction="#click3" prefHeight="36.0" prefWidth="38.0" style="-fx-background-color: DarkSalmon;" text="3">
+      <Button fx:id="button3" layoutX="180.0" layoutY="266.0" mnemonicParsing="false" onAction="#click3" prefHeight="36.0" prefWidth="38.0" style="-fx-background-color: DarkSalmon;" text="3">
          <font>
             <Font name="Showcard Gothic" size="15.0" />
          </font>
@@ -65,12 +65,12 @@
             <Font name="Showcard Gothic" size="15.0" />
          </font>
       </Button>
-      <Button fx:id="button5" layoutX="89.0" layoutY="324.0" mnemonicParsing="false" onAction="#click5" prefHeight="36.0" prefWidth="38.0" style="-fx-background-color: DarkSalmon;" text="5">
+      <Button fx:id="button5" layoutX="106.0" layoutY="324.0" mnemonicParsing="false" onAction="#click5" prefHeight="36.0" prefWidth="38.0" style="-fx-background-color: DarkSalmon;" text="5">
          <font>
             <Font name="Showcard Gothic" size="15.0" />
          </font>
       </Button>
-      <Button fx:id="button6" layoutX="145.0" layoutY="324.0" mnemonicParsing="false" onAction="#click6" prefHeight="36.0" prefWidth="38.0" style="-fx-background-color: DarkSalmon;" text="6">
+      <Button fx:id="button6" layoutX="180.0" layoutY="324.0" mnemonicParsing="false" onAction="#click6" prefHeight="36.0" prefWidth="38.0" style="-fx-background-color: DarkSalmon;" text="6">
          <font>
             <Font name="Showcard Gothic" size="15.0" />
          </font>
@@ -80,17 +80,17 @@
             <Font name="Showcard Gothic" size="15.0" />
          </font>
       </Button>
-      <Button fx:id="button8" layoutX="89.0" layoutY="377.0" mnemonicParsing="false" onAction="#click8" prefHeight="36.0" prefWidth="38.0" style="-fx-background-color: DarkSalmon;" text="8">
+      <Button fx:id="button8" layoutX="106.0" layoutY="377.0" mnemonicParsing="false" onAction="#click8" prefHeight="36.0" prefWidth="38.0" style="-fx-background-color: DarkSalmon;" text="8">
          <font>
             <Font name="Showcard Gothic" size="15.0" />
          </font>
       </Button>
-      <Button fx:id="button9" layoutX="145.0" layoutY="377.0" mnemonicParsing="false" onAction="#click9" prefHeight="36.0" prefWidth="38.0" style="-fx-background-color: DarkSalmon;" text="9">
+      <Button fx:id="button9" layoutX="180.0" layoutY="377.0" mnemonicParsing="false" onAction="#click9" prefHeight="36.0" prefWidth="38.0" style="-fx-background-color: DarkSalmon;" text="9">
          <font>
             <Font name="Showcard Gothic" size="15.0" />
          </font>
       </Button>
-      <Button fx:id="button0" layoutX="89.0" layoutY="422.0" mnemonicParsing="false" onAction="#click0" prefHeight="36.0" prefWidth="38.0" style="-fx-background-color: DarkSalmon;" text="0">
+      <Button fx:id="button0" layoutX="106.0" layoutY="422.0" mnemonicParsing="false" onAction="#click0" prefHeight="36.0" prefWidth="38.0" style="-fx-background-color: DarkSalmon;" text="0">
          <font>
             <Font name="Showcard Gothic" size="15.0" />
          </font>
@@ -131,12 +131,12 @@
          </font>
       </Button>
       <Line endX="-59.0" endY="187.0" fill="WHITE" layoutX="359.0" layoutY="268.0" startX="-59.0" startY="-3.5" stroke="WHITE" />
-      <Label fx:id="error1Label" layoutX="511.0" layoutY="77.0" text="Required!" underline="true" visible="false">
+      <Label fx:id="error1Label" layoutX="525.0" layoutY="77.0" text="Required!" underline="true" visible="false">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="error2Label" layoutX="511.0" layoutY="121.0" text="Required!" underline="true" visible="false">
+      <Label fx:id="error2Label" layoutX="525.0" layoutY="121.0" text="Required!" underline="true" visible="false">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
@@ -146,17 +146,22 @@
             <Font name="Showcard Gothic" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="multiplyButton" layoutX="229.0" layoutY="207.0" mnemonicParsing="false" onAction="#clickMultiply" prefHeight="36.0" prefWidth="72.0" style="-fx-background-color: lavender;" text="Multiply">
+      <Button fx:id="multiplyButton" layoutX="199.0" layoutY="207.0" mnemonicParsing="false" onAction="#clickMultiply" prefHeight="36.0" prefWidth="72.0" style="-fx-background-color: lavender;" text="Multiply">
          <font>
             <Font name="Showcard Gothic" size="11.0" />
          </font>
       </Button>
-      <Button fx:id="derivativeButton" layoutX="327.0" layoutY="207.0" mnemonicParsing="false" onAction="#clickDerivative" prefHeight="36.0" prefWidth="91.0" style="-fx-background-color: lavender;" text="Derivative">
+      <Button fx:id="derivativeButton" layoutX="386.0" layoutY="207.0" mnemonicParsing="false" onAction="#clickDerivative" prefHeight="36.0" prefWidth="91.0" style="-fx-background-color: lavender;" text="Derivative">
          <font>
             <Font name="Showcard Gothic" size="11.0" />
          </font>
       </Button>
-      <Button fx:id="integrationButton" layoutX="438.0" layoutY="207.0" mnemonicParsing="false" onAction="#clickIntegration" prefHeight="36.0" prefWidth="91.0" style="-fx-background-color: lavender;" text="Integration">
+      <Button fx:id="integrationButton" layoutX="496.0" layoutY="207.0" mnemonicParsing="false" onAction="#clickIntegration" prefHeight="36.0" prefWidth="91.0" style="-fx-background-color: lavender;" text="Integration">
+         <font>
+            <Font name="Showcard Gothic" size="11.0" />
+         </font>
+      </Button>
+      <Button fx:id="divideButton" layoutX="284.0" layoutY="207.0" mnemonicParsing="false" onAction="#clickDivide" prefHeight="36.0" prefWidth="91.0" style="-fx-background-color: lavender;" text="Divide">
          <font>
             <Font name="Showcard Gothic" size="11.0" />
          </font>

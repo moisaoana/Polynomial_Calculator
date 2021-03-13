@@ -1,5 +1,8 @@
 package sample.Models;
 
+import javax.annotation.processing.SupportedSourceVersion;
+import java.util.ArrayList;
+
 public class Operations {
     private Polynomial polynomial1;
     private Polynomial polynomial2;
@@ -102,8 +105,37 @@ public class Operations {
         for(Monomial monomial: polynomial1.getMonomials()){
                 Monomial newMonomial = new Monomial(monomial.getCoefficient()/(monomial.getPower()+1), monomial.getPower()+1);
                 result.getMonomials().add(newMonomial);
-
         }
+        return result;
+    }
+    public ArrayList<Polynomial> division()
+    {
+        Polynomial dividend,divisor;
+        if(polynomial1.getMonomials().get(0).getPower()>polynomial2.getMonomials().get(0).getPower()){
+            dividend=polynomial1;
+            divisor=polynomial2;
+        }else{
+            dividend=polynomial2;
+            divisor=polynomial1;
+        }
+        Polynomial remainder=dividend;
+        Polynomial quotient=new Polynomial();
+        while(remainder.getMonomials().get(0).getPower()>=divisor.getMonomials().get(0).getPower()){
+            Monomial newMonomial=new Monomial(remainder.getMonomials().get(0).getCoefficient()/divisor.getMonomials().get(0).getCoefficient(),remainder.getMonomials().get(0).getPower()-divisor.getMonomials().get(0).getPower());
+            quotient.getMonomials().add(newMonomial);
+            Polynomial oneMonomialPolynomial=new Polynomial();
+            oneMonomialPolynomial.getMonomials().add(newMonomial);
+            Operations op=new Operations(divisor,oneMonomialPolynomial);
+            Polynomial newPolynomial= op.multiply();
+            Operations op2=new Operations(remainder,newPolynomial);
+            remainder=op2.subtract();
+            if(dividend.getMonomials().size()==1 || remainder.getMonomials().isEmpty()){
+                break;
+            }
+        }
+        ArrayList<Polynomial> result=new ArrayList<Polynomial>();
+        result.add(quotient);
+        result.add(remainder);
         return result;
     }
 }
