@@ -15,6 +15,9 @@ public class Polynomial {
     public void setMonomials(ArrayList<Monomial> monomials) {
         this.monomials = monomials;
     }
+    public void simplify() {
+        monomials.removeIf(monomial -> monomial.getCoefficient() == 0);
+    }
 
 
 }

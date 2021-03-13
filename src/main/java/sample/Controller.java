@@ -81,6 +81,8 @@ public class Controller {
     @FXML
     private Button divideButton;
     @FXML
+    private Label templateLabel;
+    @FXML
     void click0(ActionEvent event) {
         appendText("0");
     }
@@ -182,6 +184,7 @@ public class Controller {
             Polynomial polynomial2 = getPolynomial(poly2TextField);
             Operations operations = new Operations(polynomial1, polynomial2);
             Polynomial result = operations.add();
+            result.simplify();
             displayResult(result);
         }
     }
@@ -197,10 +200,10 @@ public class Controller {
             Polynomial polynomial2 = getPolynomial(poly2TextField);
             Operations operations = new Operations(polynomial1, polynomial2);
             Polynomial result = operations.subtract();
+            result.simplify();
             displayResult(result);
         }
     }
-
     @FXML
     void clickClear(ActionEvent event) {
         resultTextField.clear();
@@ -221,9 +224,9 @@ public class Controller {
             Polynomial polynomial2 = getPolynomial(poly2TextField);
             Operations operations = new Operations(polynomial1, polynomial2);
             Polynomial result = operations.multiply();
+            result.simplify();
             displayResult(result);
         }
-
     }
     @FXML
     void clickDerivative(ActionEvent event) {
@@ -236,9 +239,9 @@ public class Controller {
             Polynomial polynomial1 = getPolynomial(poly1TextField);
             Operations operations = new Operations(polynomial1, null);
             Polynomial result = operations.derivative();
+            result.simplify();
             displayResult(result);
         }
-
     }
     @FXML
     void clickIntegration(ActionEvent event) {
@@ -251,6 +254,7 @@ public class Controller {
             Polynomial polynomial1 = getPolynomial(poly1TextField);
             Operations operations = new Operations(polynomial1, null);
             Polynomial result = operations.integration();
+            result.simplify();
             displayResult(result);
         }
     }
@@ -270,9 +274,7 @@ public class Controller {
             displayResult(result.get(0));
             resultTextField.appendText(" | Remainder: ");
             displayResult(result.get(1));
-
         }
-
     }
     public void appendText(String string)
     {
@@ -309,17 +311,13 @@ public class Controller {
             }
             int power =0;
             if (matcher.group(3).equals("")) {
-                if(matcher.group(2)==null)
-                    power=0;
-                else
+                if(matcher.group(2)!=null)
                     power=1;
             } else {
                 power = Integer.parseInt(matcher.group(3));
             }
-            if(!(matcher.group(1).equals("") && matcher.group(2)==null &&matcher.group(3).equals(""))) {
-                Monomial monomial = new Monomial(coeff, power);
-                polynomial1.getMonomials().add(monomial);
-            }
+            if(!(matcher.group(1).equals("") && matcher.group(2)==null &&matcher.group(3).equals("")))
+                polynomial1.getMonomials().add(new Monomial(coeff, power));
         }
        return polynomial1;
     }

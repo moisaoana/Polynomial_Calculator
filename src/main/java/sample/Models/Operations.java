@@ -1,6 +1,4 @@
 package sample.Models;
-
-import javax.annotation.processing.SupportedSourceVersion;
 import java.util.ArrayList;
 
 public class Operations {
@@ -139,5 +137,3 @@ public class Operations {
         return result;
     }
 }
-
-

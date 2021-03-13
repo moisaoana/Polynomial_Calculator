@@ -7,7 +7,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="466.0" prefWidth="600.0" style="-fx-background-color: SlateBlue;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<AnchorPane prefHeight="520.0" prefWidth="603.0" style="-fx-background-color: SlateBlue;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
       <Label fx:id="titleLabel" layoutX="142.0" layoutY="21.0" text="Polynomial Calculator" textAlignment="CENTER" textFill="WHITE">
          <font>
@@ -166,5 +166,10 @@
             <Font name="Showcard Gothic" size="11.0" />
          </font>
       </Button>
+      <Label fx:id="templateLabel" layoutX="142.0" layoutY="479.0" prefHeight="25.0" prefWidth="365.0" style="-fx-border-color: white;" text="Template: 𝑃(x)=a∗x^n+b∗x^(n−1)+…+c∗x+d" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
