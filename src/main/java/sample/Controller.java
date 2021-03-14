@@ -371,9 +371,9 @@ public class Controller {
     public void displayResult(Polynomial polynomial)
     {
         DecimalFormat f = new DecimalFormat("#.##");
-        if(polynomial.getMonomials().isEmpty()) {
-            resultTextField.appendText("0");
-        }
+       // if(polynomial.getMonomials().isEmpty()) {
+        //    resultTextField.appendText("0");
+        //}
         for(Monomial monomial: polynomial.getMonomials())
         {
                 switch(monomial.getPower()) {

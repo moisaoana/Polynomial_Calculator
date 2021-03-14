@@ -30,15 +30,15 @@ public class Monomial implements Comparable< Monomial> {
         return Integer.compare(this.getPower(),o.getPower());
     }
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(Object object) {
 
-        if (o == this) {
+        if (object == this) {
             return true;
         }
-        if (!(o instanceof Monomial)) {
+        if (!(object instanceof Monomial)) {
             return false;
         }
-       Monomial m = (Monomial) o;
+       Monomial m = (Monomial) object;
         return Double.compare(coefficient, m.coefficient) == 0
                 && Integer.compare(power, m.power) == 0;
     }

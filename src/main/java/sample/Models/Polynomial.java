@@ -29,15 +29,15 @@ public class Polynomial {
     {
         return monomials.size() == 1 && monomials.get(0).getCoefficient() == 0;
     }
-    public boolean equals(Object o) {
+    public boolean equals(Object object) {
 
-        if (o == this) {
+        if (object == this) {
             return true;
         }
-        if (!(o instanceof Polynomial)) {
+        if (!(object instanceof Polynomial)) {
             return false;
         }
-        Polynomial p = (Polynomial) o;
+        Polynomial p = (Polynomial) object;
         if(this.getMonomials().size()!=p.getMonomials().size())
             return false;
         boolean eq=true;
@@ -50,7 +50,6 @@ public class Polynomial {
             }
             index++;
         }
-
         return eq;
     }
 }

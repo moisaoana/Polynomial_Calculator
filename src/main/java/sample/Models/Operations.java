@@ -35,6 +35,8 @@ public class Operations {
                 result.getMonomials().add(index, monomial);
             }
         }
+        if(result.getMonomials().isEmpty())
+            result.getMonomials().add(new Monomial(0,0));
         return result;
     }
 
@@ -64,6 +66,8 @@ public class Operations {
                 result.getMonomials().add(index, monomial);
             }
         }
+        if(result.getMonomials().isEmpty())
+            result.getMonomials().add(new Monomial(0,0));
         return result;
     }
 
@@ -86,6 +90,8 @@ public class Operations {
                 }
             }
         }
+        if(result.getMonomials().isEmpty())
+            result.getMonomials().add(new Monomial(0,0));
     return result;
     }
 
@@ -98,6 +104,8 @@ public class Operations {
                 result.getMonomials().add(newMonomial);
             }
         }
+        if(result.getMonomials().isEmpty())
+            result.getMonomials().add(new Monomial(0,0));
             return result;
     }
 
@@ -108,6 +116,8 @@ public class Operations {
                 Monomial newMonomial = new Monomial(monomial.getCoefficient()/(monomial.getPower()+1), monomial.getPower()+1);
                 result.getMonomials().add(newMonomial);
         }
+        if(result.getMonomials().isEmpty())
+          result.getMonomials().add(new Monomial(0,0));
         return result;
     }
 
