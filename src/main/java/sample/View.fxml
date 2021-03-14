@@ -24,8 +24,8 @@
             <Font name="Times New Roman Bold" size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="poly1TextField" layoutX="147.0" layoutY="74.0" onMouseClicked="#clickTextBox1" prefHeight="25.0" prefWidth="365.0" promptText="Insert first polynomial" />
-      <TextField fx:id="poly2TextField" layoutX="147.0" layoutY="118.0" onMouseClicked="#clickTextBox2" prefHeight="25.0" prefWidth="365.0" promptText="Insert second polynomial" />
+      <TextField fx:id="poly1TextField" layoutX="147.0" layoutY="74.0" onMouseClicked="#clickTextBox1" prefHeight="25.0" prefWidth="347.0" promptText="Insert first polynomial" />
+      <TextField fx:id="poly2TextField" layoutX="147.0" layoutY="118.0" onMouseClicked="#clickTextBox2" prefHeight="25.0" prefWidth="347.0" promptText="Insert second polynomial" />
       <TextField fx:id="resultTextField" editable="false" layoutX="147.0" layoutY="165.0" prefHeight="25.0" prefWidth="365.0" style="-fx-background-color: silver;">
          <font>
             <Font name="System Bold" size="12.0" />
@@ -169,6 +169,16 @@
       <Label fx:id="templateLabel" layoutX="142.0" layoutY="479.0" prefHeight="25.0" prefWidth="365.0" style="-fx-border-color: white;" text="Template: 𝑃(x)=a∗x^n+b∗x^(n−1)+…+c∗x+d" textFill="WHITE">
          <font>
             <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="incorrectLabel1" layoutX="502.0" layoutY="72.0" prefHeight="29.0" prefWidth="106.0" style="-fx-border-color: red;" text="Incorrect Format!" textFill="WHITE" visible="false">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="incorrectLabel2" layoutX="502.0" layoutY="126.0" prefHeight="29.0" prefWidth="106.0" style="-fx-border-color: red;" text="Incorrect Format!" textFill="WHITE" visible="false">
+         <font>
+            <Font name="System Bold" size="12.0" />
          </font>
       </Label>
    </children>

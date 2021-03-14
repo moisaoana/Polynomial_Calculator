@@ -1,6 +1,6 @@
 package sample.Models;
 
-public class Monomial {
+public class Monomial implements Comparable< Monomial> {
     private double coefficient;
     private int power;
     public Monomial(double coefficient,int power){
@@ -25,4 +25,8 @@ public class Monomial {
     }
 
 
+    @Override
+    public int compareTo(Monomial o) {
+        return Integer.compare(this.getPower(),o.getPower());
+    }
 }
