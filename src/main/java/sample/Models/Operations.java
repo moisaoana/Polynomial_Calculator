@@ -74,18 +74,21 @@ public class Operations {
             for(Monomial monomial2: polynomial2.getMonomials()) {
                 Monomial res=new Monomial(monomial1.getCoefficient()*monomial2.getCoefficient(),monomial1.getPower()+monomial2.getPower());
                 Polynomial newPoly=new Polynomial();
-                newPoly.getMonomials().add(res);
-                if(first){
-                    result.getMonomials().add(res);
-                    first=false;
-                }else {
-                    Operations operations = new Operations(result, newPoly);
-                    result = operations.add();
+                if(monomial1.getCoefficient()*monomial2.getCoefficient()!=0) {
+                    newPoly.getMonomials().add(res);
+                    if (first) {
+                        result.getMonomials().add(res);
+                        first = false;
+                    } else {
+                        Operations operations = new Operations(result, newPoly);
+                        result = operations.add();
+                    }
                 }
             }
         }
     return result;
     }
+
     public Polynomial derivative()
     {
         Polynomial result=new Polynomial();
@@ -97,6 +100,7 @@ public class Operations {
         }
             return result;
     }
+
     public Polynomial integration()
     {
         Polynomial result=new Polynomial();
@@ -106,6 +110,7 @@ public class Operations {
         }
         return result;
     }
+
     public ArrayList<Polynomial> division()
     {
         Polynomial dividend,divisor;

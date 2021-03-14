@@ -29,6 +29,29 @@ public class Polynomial {
     {
         return monomials.size() == 1 && monomials.get(0).getCoefficient() == 0;
     }
+    public boolean equals(Object o) {
 
+        if (o == this) {
+            return true;
+        }
+        if (!(o instanceof Polynomial)) {
+            return false;
+        }
+        Polynomial p = (Polynomial) o;
+        if(this.getMonomials().size()!=p.getMonomials().size())
+            return false;
+        boolean eq=true;
+        int index=0;
+        while(index<getMonomials().size())
+        {
+            if(!(getMonomials().get(index).equals(p.getMonomials().get(index)))){
+                eq=false;
+                break;
+            }
+            index++;
+        }
 
+        return eq;
+    }
 }
+

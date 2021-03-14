@@ -182,10 +182,11 @@ public class Controller {
             resultTextField.clear();
         } else {
             resultTextField.clear();
+            displayErrorMessages();
             if (validatePolynomial(poly1TextField) && validatePolynomial(poly2TextField)) {
                 displayIncorrectLabels();
-                Polynomial polynomial1 = getPolynomial(poly1TextField);
-                Polynomial polynomial2 = getPolynomial(poly2TextField);
+                Polynomial polynomial1 = getPolynomial(poly1TextField.getText());
+                Polynomial polynomial2 = getPolynomial(poly2TextField.getText());
                 Operations operations = new Operations(polynomial1, polynomial2);
                 Polynomial result = operations.add();
                 result.simplify();
@@ -202,10 +203,11 @@ public class Controller {
             resultTextField.clear();
         } else {
             resultTextField.clear();
+            displayErrorMessages();
             if (validatePolynomial(poly1TextField) && validatePolynomial(poly2TextField)) {
                 displayIncorrectLabels();
-                Polynomial polynomial1 = getPolynomial(poly1TextField);
-                Polynomial polynomial2 = getPolynomial(poly2TextField);
+                Polynomial polynomial1 = getPolynomial(poly1TextField.getText());
+                Polynomial polynomial2 = getPolynomial(poly2TextField.getText());
                 Operations operations = new Operations(polynomial1, polynomial2);
                 Polynomial result = operations.subtract();
                 result.simplify();
@@ -232,10 +234,11 @@ public class Controller {
             resultTextField.clear();
         } else {
             resultTextField.clear();
+            displayErrorMessages();
             if (validatePolynomial(poly1TextField) && validatePolynomial(poly2TextField)) {
                 displayIncorrectLabels();
-                Polynomial polynomial1 = getPolynomial(poly1TextField);
-                Polynomial polynomial2 = getPolynomial(poly2TextField);
+                Polynomial polynomial1 = getPolynomial(poly1TextField.getText());
+                Polynomial polynomial2 = getPolynomial(poly2TextField.getText());
                 Operations operations = new Operations(polynomial1, polynomial2);
                 Polynomial result = operations.multiply();
                 result.simplify();
@@ -252,9 +255,9 @@ public class Controller {
             resultTextField.clear();
         } else {
             resultTextField.clear();
-            if (validatePolynomial(poly1TextField) && validatePolynomial(poly2TextField)) {
-                displayIncorrectLabels();
-                Polynomial polynomial1 = getPolynomial(poly1TextField);
+            if (validatePolynomial(poly1TextField) ) {
+                incorrectLabel1.setVisible(!validatePolynomial(poly1TextField));
+                Polynomial polynomial1 = getPolynomial(poly1TextField.getText());
                 Operations operations = new Operations(polynomial1, null);
                 Polynomial result = operations.derivative();
                 result.simplify();
@@ -271,9 +274,9 @@ public class Controller {
             resultTextField.clear();
         } else {
             resultTextField.clear();
-            if (validatePolynomial(poly1TextField) && validatePolynomial(poly2TextField)) {
-                displayIncorrectLabels();
-                Polynomial polynomial1 = getPolynomial(poly1TextField);
+            if (validatePolynomial(poly1TextField)) {
+                incorrectLabel1.setVisible(!validatePolynomial(poly1TextField));
+                Polynomial polynomial1 = getPolynomial(poly1TextField.getText());
                 Operations operations = new Operations(polynomial1, null);
                 Polynomial result = operations.integration();
                 result.simplify();
@@ -290,10 +293,11 @@ public class Controller {
             resultTextField.clear();
         } else {
             resultTextField.clear();
+            displayErrorMessages();
             if (validatePolynomial(poly1TextField) && validatePolynomial(poly2TextField)) {
                 displayIncorrectLabels();
-                Polynomial polynomial1 = getPolynomial(poly1TextField);
-                Polynomial polynomial2 = getPolynomial(poly2TextField);
+                Polynomial polynomial1 = getPolynomial(poly1TextField.getText());
+                Polynomial polynomial2 = getPolynomial(poly2TextField.getText());
                 if(polynomial1.checkIfZero() || polynomial2.checkIfZero()) {
                     resultTextField.appendText("Operand cannot be zero!");
                 }
@@ -334,11 +338,10 @@ public class Controller {
         Matcher matcher = pattern.matcher(p);
         return matcher.matches();
     }
-    public Polynomial getPolynomial(TextField textField)
+    public static Polynomial getPolynomial(String p1)
     {
         Polynomial polynomial1 = new Polynomial();
         String polyPattern="([+-]?[0-9]*)[*]?([x])?[\\^]?([0-9]*)";
-        String p1=textField.getText();
         Pattern pattern =Pattern.compile(polyPattern);
         Matcher matcher=pattern.matcher(p1);
         while(matcher.find()) {

@@ -29,4 +29,17 @@ public class Monomial implements Comparable< Monomial> {
     public int compareTo(Monomial o) {
         return Integer.compare(this.getPower(),o.getPower());
     }
+    @Override
+    public boolean equals(Object o) {
+
+        if (o == this) {
+            return true;
+        }
+        if (!(o instanceof Monomial)) {
+            return false;
+        }
+       Monomial m = (Monomial) o;
+        return Double.compare(coefficient, m.coefficient) == 0
+                && Integer.compare(power, m.power) == 0;
+    }
 }
