@@ -183,10 +183,10 @@ public class Controller {
         } else {
             resultTextField.clear();
             displayErrorMessages();
-            if (validatePolynomial(poly1TextField) && validatePolynomial(poly2TextField)) {
+            if (Polynomial.validatePolynomial(poly1TextField) && Polynomial.validatePolynomial(poly2TextField)) {
                 displayIncorrectLabels();
-                Polynomial polynomial1 = getPolynomial(poly1TextField.getText());
-                Polynomial polynomial2 = getPolynomial(poly2TextField.getText());
+                Polynomial polynomial1 = Polynomial.getPolynomial(poly1TextField.getText());
+                Polynomial polynomial2 = Polynomial.getPolynomial(poly2TextField.getText());
                 Operations operations = new Operations(polynomial1, polynomial2);
                 Polynomial result = operations.add();
                 result.simplify();
@@ -204,10 +204,10 @@ public class Controller {
         } else {
             resultTextField.clear();
             displayErrorMessages();
-            if (validatePolynomial(poly1TextField) && validatePolynomial(poly2TextField)) {
+            if (Polynomial.validatePolynomial(poly1TextField) && Polynomial.validatePolynomial(poly2TextField)) {
                 displayIncorrectLabels();
-                Polynomial polynomial1 = getPolynomial(poly1TextField.getText());
-                Polynomial polynomial2 = getPolynomial(poly2TextField.getText());
+                Polynomial polynomial1 = Polynomial.getPolynomial(poly1TextField.getText());
+                Polynomial polynomial2 = Polynomial.getPolynomial(poly2TextField.getText());
                 Operations operations = new Operations(polynomial1, polynomial2);
                 Polynomial result = operations.subtract();
                 result.simplify();
@@ -235,10 +235,10 @@ public class Controller {
         } else {
             resultTextField.clear();
             displayErrorMessages();
-            if (validatePolynomial(poly1TextField) && validatePolynomial(poly2TextField)) {
+            if (Polynomial.validatePolynomial(poly1TextField) && Polynomial.validatePolynomial(poly2TextField)) {
                 displayIncorrectLabels();
-                Polynomial polynomial1 = getPolynomial(poly1TextField.getText());
-                Polynomial polynomial2 = getPolynomial(poly2TextField.getText());
+                Polynomial polynomial1 = Polynomial.getPolynomial(poly1TextField.getText());
+                Polynomial polynomial2 = Polynomial.getPolynomial(poly2TextField.getText());
                 Operations operations = new Operations(polynomial1, polynomial2);
                 Polynomial result = operations.multiply();
                 result.simplify();
@@ -255,9 +255,9 @@ public class Controller {
             resultTextField.clear();
         } else {
             resultTextField.clear();
-            if (validatePolynomial(poly1TextField) ) {
-                incorrectLabel1.setVisible(!validatePolynomial(poly1TextField));
-                Polynomial polynomial1 = getPolynomial(poly1TextField.getText());
+            if (Polynomial.validatePolynomial(poly1TextField) ) {
+                incorrectLabel1.setVisible(!Polynomial.validatePolynomial(poly1TextField));
+                Polynomial polynomial1 = Polynomial.getPolynomial(poly1TextField.getText());
                 Operations operations = new Operations(polynomial1, null);
                 Polynomial result = operations.derivative();
                 result.simplify();
@@ -274,9 +274,9 @@ public class Controller {
             resultTextField.clear();
         } else {
             resultTextField.clear();
-            if (validatePolynomial(poly1TextField)) {
-                incorrectLabel1.setVisible(!validatePolynomial(poly1TextField));
-                Polynomial polynomial1 = getPolynomial(poly1TextField.getText());
+            if (Polynomial.validatePolynomial(poly1TextField)) {
+                incorrectLabel1.setVisible(!Polynomial.validatePolynomial(poly1TextField));
+                Polynomial polynomial1 = Polynomial.getPolynomial(poly1TextField.getText());
                 Operations operations = new Operations(polynomial1, null);
                 Polynomial result = operations.integration();
                 result.simplify();
@@ -294,10 +294,10 @@ public class Controller {
         } else {
             resultTextField.clear();
             displayErrorMessages();
-            if (validatePolynomial(poly1TextField) && validatePolynomial(poly2TextField)) {
+            if (Polynomial.validatePolynomial(poly1TextField) && Polynomial.validatePolynomial(poly2TextField)) {
                 displayIncorrectLabels();
-                Polynomial polynomial1 = getPolynomial(poly1TextField.getText());
-                Polynomial polynomial2 = getPolynomial(poly2TextField.getText());
+                Polynomial polynomial1 = Polynomial.getPolynomial(poly1TextField.getText());
+                Polynomial polynomial2 = Polynomial.getPolynomial(poly2TextField.getText());
                 if(polynomial1.checkIfZero() || polynomial2.checkIfZero()) {
                     resultTextField.appendText("Operand cannot be zero!");
                 }
@@ -327,53 +327,16 @@ public class Controller {
         error2Label.setVisible(poly2TextField.getText().isEmpty());
     }
     public void displayIncorrectLabels(){
-        incorrectLabel1.setVisible(!validatePolynomial(poly1TextField));
-        incorrectLabel2.setVisible(!validatePolynomial(poly2TextField));
+        incorrectLabel1.setVisible(!Polynomial.validatePolynomial(poly1TextField));
+        incorrectLabel2.setVisible(!Polynomial.validatePolynomial(poly2TextField));
     }
-    public boolean validatePolynomial(TextField textField)
-    {
-        String PATTERN = "^(([+-]{1}|^[+-]?)([0-9]+[*]?[x]{1}|[0-9]+|[x]{1})([\\^]{1}[0-9]+)?)++$";
-        Pattern pattern = Pattern.compile(PATTERN);
-        String p=textField.getText();
-        Matcher matcher = pattern.matcher(p);
-        return matcher.matches();
-    }
-    public static Polynomial getPolynomial(String p1)
-    {
-        Polynomial polynomial1 = new Polynomial();
-        String polyPattern="([+-]?[0-9]*)[*]?([x])?[\\^]?([0-9]*)";
-        Pattern pattern =Pattern.compile(polyPattern);
-        Matcher matcher=pattern.matcher(p1);
-        while(matcher.find()) {
-            int coeff=0 ;
-            if(!matcher.group(1).equals("")) {
-                if (matcher.group(1).equals("+"))
-                    coeff = 1;
-                else if (matcher.group(1).equals("-"))
-                    coeff = -1;
-                else
-                    coeff = Integer.parseInt(matcher.group(1));
-            }else
-                coeff=1;
-            int power =0;
-            if (matcher.group(3).equals("")) {
-                if(matcher.group(2)!=null)
-                    power=1;
-            } else {
-                power = Integer.parseInt(matcher.group(3));
-            }
-            if(!(matcher.group(1).equals("") && matcher.group(2)==null &&matcher.group(3).equals("")))
-                polynomial1.getMonomials().add(new Monomial(coeff, power));
-        }
-        polynomial1.sortPolynomial();
-       return polynomial1;
-    }
+
     public void displayResult(Polynomial polynomial)
     {
         DecimalFormat f = new DecimalFormat("#.##");
-       // if(polynomial.getMonomials().isEmpty()) {
-        //    resultTextField.appendText("0");
-        //}
+        if(polynomial.getMonomials().isEmpty()) {
+            resultTextField.appendText("0");
+        }
         for(Monomial monomial: polynomial.getMonomials())
         {
                 switch(monomial.getPower()) {

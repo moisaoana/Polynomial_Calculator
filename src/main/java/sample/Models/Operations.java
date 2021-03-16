@@ -10,6 +10,22 @@ public class Operations {
         this.polynomial2 = polynomial2;
     }
 
+    public Polynomial getPolynomial1() {
+        return polynomial1;
+    }
+
+    public void setPolynomial1(Polynomial polynomial1) {
+        this.polynomial1 = polynomial1;
+    }
+
+    public Polynomial getPolynomial2() {
+        return polynomial2;
+    }
+
+    public void setPolynomial2(Polynomial polynomial2) {
+        this.polynomial2 = polynomial2;
+    }
+
     public Polynomial add() {
         Polynomial result = new Polynomial();
         for (Monomial monomial : polynomial1.getMonomials()) {

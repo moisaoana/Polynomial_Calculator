@@ -1,5 +1,7 @@
 package sample.Models;
 
+import javafx.scene.control.TextField;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.regex.Matcher;
@@ -51,6 +53,44 @@ public class Polynomial {
             index++;
         }
         return eq;
+    }
+    public static boolean validatePolynomial(TextField textField)
+    {
+        String PATTERN = "^(([+-]{1}|^[+-]?)([0-9]+[*]?[x]{1}|[0-9]+|[x]{1})([\\^]{1}[0-9]+)?)++$";
+        Pattern pattern = Pattern.compile(PATTERN);
+        String p=textField.getText();
+        Matcher matcher = pattern.matcher(p);
+        return matcher.matches();
+    }
+    public static Polynomial getPolynomial(String p1)
+    {
+        Polynomial polynomial1 = new Polynomial();
+        String polyPattern="([+-]?[0-9]*)[*]?([x])?[\\^]?([0-9]*)";
+        Pattern pattern =Pattern.compile(polyPattern);
+        Matcher matcher=pattern.matcher(p1);
+        while(matcher.find()) {
+            int coeff=0 ;
+            if(!matcher.group(1).equals("")) {
+                if (matcher.group(1).equals("+"))
+                    coeff = 1;
+                else if (matcher.group(1).equals("-"))
+                    coeff = -1;
+                else
+                    coeff = Integer.parseInt(matcher.group(1));
+            }else
+                coeff=1;
+            int power =0;
+            if (matcher.group(3).equals("")) {
+                if(matcher.group(2)!=null)
+                    power=1;
+            } else {
+                power = Integer.parseInt(matcher.group(3));
+            }
+            if(!(matcher.group(1).equals("") && matcher.group(2)==null &&matcher.group(3).equals("")))
+                polynomial1.getMonomials().add(new Monomial(coeff, power));
+        }
+        polynomial1.sortPolynomial();
+        return polynomial1;
     }
 }
 

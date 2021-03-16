@@ -16,9 +16,9 @@ public class OperationsTest {
     @ParameterizedTest
     @MethodSource("provideInputAddition")
     void testAddition(String s1,String s2,String expectedString){
-        Polynomial p1= Controller.getPolynomial(s1);
-        Polynomial p2=Controller.getPolynomial(s2);
-        Polynomial expectedResult=Controller.getPolynomial(expectedString);
+        Polynomial p1= Polynomial.getPolynomial(s1);
+        Polynomial p2=Polynomial.getPolynomial(s2);
+        Polynomial expectedResult=Polynomial.getPolynomial(expectedString);
         Operations operations=new Operations(p1,p2);
         assertEquals(expectedResult,operations.add());
     }
@@ -35,9 +35,9 @@ public class OperationsTest {
     @ParameterizedTest
     @MethodSource("provideInputSubtraction")
     void testSubtraction(String s1,String s2,String expectedString){
-        Polynomial p1= Controller.getPolynomial(s1);
-        Polynomial p2=Controller.getPolynomial(s2);
-        Polynomial expectedResult=Controller.getPolynomial(expectedString);
+        Polynomial p1= Polynomial.getPolynomial(s1);
+        Polynomial p2=Polynomial.getPolynomial(s2);
+        Polynomial expectedResult=Polynomial.getPolynomial(expectedString);
         Operations operations=new Operations(p1,p2);
         assertEquals(expectedResult,operations.subtract());
     }
@@ -54,9 +54,9 @@ public class OperationsTest {
     @ParameterizedTest
     @MethodSource("provideInputMultiplication")
     void testMultiplication(String s1,String s2,String expectedString){
-        Polynomial p1= Controller.getPolynomial(s1);
-        Polynomial p2=Controller.getPolynomial(s2);
-        Polynomial expectedResult=Controller.getPolynomial(expectedString);
+        Polynomial p1= Polynomial.getPolynomial(s1);
+        Polynomial p2=Polynomial.getPolynomial(s2);
+        Polynomial expectedResult=Polynomial.getPolynomial(expectedString);
         Operations operations=new Operations(p1,p2);
         assertEquals(expectedResult,operations.multiply());
     }
@@ -73,8 +73,8 @@ public class OperationsTest {
     @ParameterizedTest
     @MethodSource("provideInputDerivative")
     void testDerivative(String s1,String expectedString){
-        Polynomial p1= Controller.getPolynomial(s1);
-        Polynomial expectedResult=Controller.getPolynomial(expectedString);
+        Polynomial p1= Polynomial.getPolynomial(s1);
+        Polynomial expectedResult=Polynomial.getPolynomial(expectedString);
         Operations operations=new Operations(p1,null);
         assertEquals(expectedResult,operations.derivative());
     }
@@ -91,8 +91,8 @@ public class OperationsTest {
     @ParameterizedTest
     @MethodSource("provideInputIntegration")
     void testIntegration(String s1,String expectedString){
-        Polynomial p1= Controller.getPolynomial(s1);
-        Polynomial expectedResult=Controller.getPolynomial(expectedString);
+        Polynomial p1= Polynomial.getPolynomial(s1);
+        Polynomial expectedResult=Polynomial.getPolynomial(expectedString);
         Operations operations=new Operations(p1,null);
         assertEquals(expectedResult,operations.integration());
     }
@@ -102,15 +102,16 @@ public class OperationsTest {
         argumentsList.add(Arguments.of("3","3*x"));
         argumentsList.add(Arguments.of("0","0*x"));
         argumentsList.add(Arguments.of("-1","-x"));
+        argumentsList.add(Arguments.of("5*x^4-3*x^2-2*x","x^5-x^3-x^2"));
         return argumentsList;
     }
     @ParameterizedTest
     @MethodSource("provideInputDivision")
     void testDivision(String s1,String s2,String exQuotient,String exRemainder){
-        Polynomial p1= Controller.getPolynomial(s1);
-        Polynomial p2=Controller.getPolynomial(s2);
-        Polynomial expectedQuotient=Controller.getPolynomial(exQuotient);
-        Polynomial expectedRemainder=Controller.getPolynomial(exRemainder);
+        Polynomial p1= Polynomial.getPolynomial(s1);
+        Polynomial p2=Polynomial.getPolynomial(s2);
+        Polynomial expectedQuotient=Polynomial.getPolynomial(exQuotient);
+        Polynomial expectedRemainder=Polynomial.getPolynomial(exRemainder);
         Operations operations=new Operations(p1,p2);
         ArrayList<Polynomial>actualResult=operations.division();
         assertEquals(expectedQuotient,actualResult.get(0));
@@ -121,8 +122,8 @@ public class OperationsTest {
         argumentsList.add(Arguments.of("x^3-2*x^2+6*x-5","x^2-1","x-2","7*x-7"));
         argumentsList.add(Arguments.of("x^2+1","x^2+1","1","0"));
         argumentsList.add(Arguments.of("x^3-x","x","x^2-1","0"));
+        argumentsList.add(Arguments.of("3*x^3-5*x^2+4","x^2","3*x-5","4"));
         return argumentsList;
     }
-
 
 }

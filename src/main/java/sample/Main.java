@@ -21,7 +21,7 @@ public class Main extends Application {
         URL url=new File("src/main/java/sample/View.fxml").toURI().toURL();
         Parent root=FXMLLoader.load(url);
         primaryStage.setTitle("Polynomial Calculator");
-        primaryStage.setScene(new Scene(root, 600, 530));
+        primaryStage.setScene(new Scene(root, 610, 530));
         primaryStage.show();
     }
 
