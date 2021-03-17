@@ -31,6 +31,7 @@ public class Polynomial {
     {
         return monomials.size() == 1 && monomials.get(0).getCoefficient() == 0;
     }
+    @Override
     public boolean equals(Object object) {
 
         if (object == this) {

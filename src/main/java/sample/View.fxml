@@ -26,7 +26,7 @@
       </Label>
       <TextField fx:id="poly1TextField" layoutX="147.0" layoutY="74.0" onMouseClicked="#clickTextBox1" prefHeight="25.0" prefWidth="347.0" promptText="Insert first polynomial" />
       <TextField fx:id="poly2TextField" layoutX="147.0" layoutY="118.0" onMouseClicked="#clickTextBox2" prefHeight="25.0" prefWidth="347.0" promptText="Insert second polynomial" />
-      <TextField fx:id="resultTextField" editable="false" layoutX="147.0" layoutY="165.0" prefHeight="25.0" prefWidth="365.0" style="-fx-background-color: silver;">
+      <TextField fx:id="resultTextField" editable="false" layoutX="147.0" layoutY="165.0" prefHeight="25.0" prefWidth="441.0" style="-fx-background-color: silver;">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></TextField>
