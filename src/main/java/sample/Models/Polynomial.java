@@ -31,6 +31,7 @@ public class Polynomial {
     {
         return monomials.size() == 1 && monomials.get(0).getCoefficient() == 0;
     }
+
     @Override
     public boolean equals(Object object) {
 
@@ -55,6 +56,7 @@ public class Polynomial {
         }
         return eq;
     }
+
     public static boolean validatePolynomial(TextField textField)
     {
         String PATTERN = "^(([+-]{1}|^[+-]?)([0-9]+[*]?[x]{1}|[0-9]+|[x]{1})([\\^]{1}[0-9]+)?)++$";
@@ -63,6 +65,7 @@ public class Polynomial {
         Matcher matcher = pattern.matcher(p);
         return matcher.matches();
     }
+
     public static Polynomial getPolynomial(String p1)
     {
         Polynomial polynomial1 = new Polynomial();

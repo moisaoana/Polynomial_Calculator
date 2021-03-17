@@ -24,11 +24,11 @@ public class Monomial implements Comparable< Monomial> {
         this.power = power;
     }
 
-
     @Override
     public int compareTo(Monomial o) {
         return Integer.compare(this.getPower(),o.getPower());
     }
+
     @Override
     public boolean equals(Object object) {
 
